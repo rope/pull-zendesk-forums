@@ -32,11 +32,11 @@ class Zenuser
       catName = JSON.parse(cat.body)
       dir = rdir + "/" + catName['category']['name'] + "/"
       Dir.mkdir(dir) unless File.exists?(dir)
-      forumName = catName['category']['name'] + "/" + forum_id.to_s + "-" + name['forum']['name'].to_s.gsub(/\s/,'-')
+      forumName = catName['category']['name'] + "/" + forum_id.to_s + "-" + name['forum']['name'].to_s.gsub(/\s/,'-').gsub(/\//,'-')
     else
       dir = rdir + "/No-Category"
       Dir.mkdir(dir) unless File.exists?(dir)
-      forumName = 'No-Category' + "/" + forum_id.to_s + "-" + name['forum']['name'].to_s.gsub(/\s/,'-')
+      forumName = 'No-Category' + "/" + forum_id.to_s + "-" + name['forum']['name'].to_s.gsub(/\s/,'-').gsub(/\//,'-')
     end
     return forumName
   end
